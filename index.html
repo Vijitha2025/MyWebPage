@@ -1,42 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Creative Crew - Home</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <h1>Welcome to Creative Crew</h1>
-
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About Us</a> |
-    <a href="services.html">Services</a> |
-    <a href="faqs.html">faqs</a> |
-    <a href="helpandsupport.html">Help & Support</a>
-  </nav>
-
-  <!-- Human Resources Section -->
-  <div class="section">
-    <h2><i class="fas fa-user"></i> Human Resources</h2>
-    <div class="card-container">
-      <a href="#" class="card"><i class="fas fa-users"></i><span>HR policy</span></a>
-      <a href="#" class="card"><i class="fas fa-link"></i><span>GitHub/Copilot</span></a>
-      <a href="#" class="card"><i class="fas fa-heartbeat"></i><span>International Travel</span></a>
-      <a href="#" class="card"><i class="fas fa-user-friends"></i><span>Application Security Policy</span></a>
-      <a href="#" class="card"><i class="fas fa-internet-explorer"></i><span>Export Compliance</span></a>
-      <a href="#" class="card"><i class="fas fa-desktop"></i><span>Audit Readiness</span></a>
-      <a href="#" class="card"><i class="fas fa-desktop"></i><span>Agile policies</span></a>
-      <a href="#" class="card"><i class="fas fa-desktop"></i><span>Employee Leave Balance</span></a>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="logo-title">
+      <img src="images/CC-logo.jpg" alt="Logo" class="logo-img"/>
+      <span class="site-title">Creative Crew</span>
     </div>
+    <nav class="navbar">
+      <a href="index.html">Home</a> |
+      <a href="about.html">About Us</a> |
+            <a href="faqs.html">FAQs</a> |
+      <a href="helpandsupport.html">Help & Support</a>
+    </nav>
+  </header>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-slide">
+      <img src="images/banner-1.png" alt="Slide 1"/>
+      <img src="images/banner-2.png" alt="Slide 2"/>
+      <img src="images/banner-3.png" alt="Slide 3"/>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
-  
-  </body>
+
+  <!-- Welcome Heading -->
+  <h1 class="homepage-heading">Welcome to Creative Crew</h1>
+
+  <!-- Our Solution Section -->
+  <section class="solution-section">
+        <h2>Our Solution</h2>
+    <p class="solution-description">
+      Discover our smart internal chatbot solution designed to simplify your everyday tasks.
+      Whether you need help with policies, leave tracking, training, or export compliance—
+      we've got you covered.
+    </p>
+  </section>
+
+  <!-- Linked Card Boxes -->
+  <div class="card-container">
+    <div class="card-box"><i class="fas fa-users"></i><span>HR Policy</span></div>
+    <div class="card-box"><i class="fas fa-code-branch"></i><span>GitHub / Copilot</span></div>
+    <div class="card-box"><i class="fas fa-plane"></i><span>International Travel</span></div>
+    <div class="card-box"><i class="fas fa-shield-alt"></i><span>Application Security Policy</span></div>
+    <div class="card-box"><i class="fas fa-globe"></i><span>Export Compliance</span></div>
+    <div class="card-box"><i class="fas fa-search"></i><span>Audit Readiness</span></div>
+    <div class="card-box"><i class="fas fa-tasks"></i><span>Agile Policies</span></div>
+    <div class="card-box"><i class="fas fa-calendar-check"></i><span>Employee Leave Balance</span></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Clarity. Compliance. Convenience – All in one chat.</p>
+  </footer>
+
+  <!-- JavaScript for Carousel -->
+  <script>
+    const slide = document.querySelector('.carousel-slide');
+    const images = document.querySelectorAll('.carousel-slide img');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let counter = 0;
+
+    function showSlide(index) {
+      if (index < 0) counter = images.length - 1;
+      else if (index >= images.length) counter = 0;
+      else counter = index;
+
+      slide.style.transform = `translateX(-${counter * 100}%)`;
+    }
+
+    next.addEventListener('click', () => showSlide(counter + 1));
+    prev.addEventListener('click', () => showSlide(counter - 1));
+    setInterval(() => showSlide(counter + 1), 5000); // Auto-slide every 5 sec
+  </script>
+</body>
 </html>
-
-
-
