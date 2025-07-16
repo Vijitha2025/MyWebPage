@@ -84,5 +84,42 @@
     prev.addEventListener('click', () => showSlide(counter - 1));
     setInterval(() => showSlide(counter + 1), 5000); // Auto-slide every 5 sec
   </script>
+  
+<!-- Chatbot Button with Tooltip -->
+<div class="chatbot-wrapper">
+  
+  <img src="images/chatbot-icon.png" id="chatbot-launcher" alt="Chatbot Icon" />
+</div>
+
+<!-- Chatbot Modal -->
+<div id="chatbot-modal">
+  <div class="chatbot-header">
+    <span>Hexagon Assistant</span>
+    <button id="chatbot-close">✖</button>
+  </div>
+  <iframe
+    src="https://cr8crew-webapp.azurewebsites.net"
+    frameborder="0"
+    allow="microphone;"
+  ></iframe>
+</div>
+
+
+<!-- Chatbot Modal Script -->
+<script>
+  const chatbotButton = document.getElementById('chatbot-launcher');
+  const chatbotModal = document.getElementById('chatbot-modal');
+  const chatbotClose = document.getElementById('chatbot-close');
+
+  chatbotButton.addEventListener('click', () => {
+    chatbotModal.style.display = 'block';
+  });
+
+  chatbotClose.addEventListener('click', () => {
+    chatbotModal.style.display = 'none';
+  });
+</script>
+
+
 </body>
 </html>

@@ -619,5 +619,72 @@ li {
 .carousel-btn:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+/* Wrapper for chatbot icon and tooltip */
+/* Floating icon */
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  text-align: center;
+}
+
+#chatbot-launcher {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* Tooltip */
+.chatbot-tooltip {
+  background: #004aad;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* Modal */
+#chatbot-modal {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 400px;
+  height: 500px;
+  background: #fff;
+  border: 2px solid #004aad;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  z-index: 2000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.chatbot-header {
+  background: #004aad;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#chatbot-modal iframe {
+  width: 100%;
+  height: calc(100% - 40px); /* account for header */
+  border: none;
+}
+
 
 
