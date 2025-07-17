@@ -271,6 +271,17 @@ li {
   margin: 15px auto 10px auto;
   object-fit: cover;
 }
+.header-banner {
+  background: linear-gradient(to right, #f3e5f5, #e1bee7); /* Light lavender to orchid */
+  color: #a595b8; /* Deep purple text */
+  padding: 30px 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 40px;
+  width: 100%;
+  border-top: 3px solid #ce93d8;
+}
 
 /* =============================
    MIDDLE SECTION BANNER
@@ -428,6 +439,18 @@ li {
 
 .faq-section h3 {
   font-style: italic;
+}
+
+.page-header-banner {
+  background: linear-gradient(to right, #e6f0ff, #ffffff); /* Light blue gradient */
+  color: #000; /* Black text */
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 30px 20px;
+  border-bottom: 3px solid #cce0ff;
+  margin-bottom: 40px;
+  border-radius: 8px;
 }
 
 .footer-banner {
@@ -685,6 +708,5 @@ li {
   height: calc(100% - 40px); /* account for header */
   border: none;
 }
-
 
 
