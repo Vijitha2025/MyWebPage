@@ -4,13 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Creative Crew - Home</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="home.css">
-
+  <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
 
+  <!-- Firebase + Auth protection + Logout (Modern) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBdAEHxkpmjMsZiBcPl0xRE4b72W-dj7sA",
+      authDomain: "creativecrew-b5d44.firebaseapp.com",
+      projectId: "creativecrew-b5d44",
+      appId: "1:881642385256:web:8e8bfd17a9f9041fee30dd"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Redirect if not logged in
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      }
+    });
+
+    // Logout
+    window.addEventListener("DOMContentLoaded", () => {
+      const logoutBtn = document.getElementById("logout-btn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+          signOut(auth)
+            .then(() => {
+              alert("Logged out!");
+              window.location.href = "login.html";
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        });
+      }
+    });
+  </script>
+</head>
+
+<body>
   <!-- Header -->
   <header class="site-header">
     <div class="logo-title">
@@ -20,130 +61,104 @@
     <nav class="navbar">
       <a href="index.html">Home</a> |
       <a href="about.html">About Us</a> |
-            <a href="faqs.html">FAQs</a> |
+      <a href="faqs.html">FAQs</a> |
       <a href="helpandsupport.html">Help & Support</a>
     </nav>
+    <button id="logout-btn">Logout</button>
   </header>
 
-  <!-- Carousel -->
+  <!-- Carousel Banner -->
   <div class="banner-wrapper">
-  <img src="images/homepage-banner.png" alt="Creative Crew Banner" class="main-banner">
-</div>
-
+    <img src="images/homepage-banner.png" alt="Creative Crew Banner" class="main-banner">
+  </div>
 
   <!-- Welcome Heading -->
   <h1 class="homepage-heading">Welcome to Creative Crew</h1>
 
   <!-- Our Solution Section -->
   <section class="solution-section">
-        <h2>Our Solution</h2>
+    <h2>Our Solution</h2>
     <p class="solution-description">
       Discover our smart internal chatbot solution designed exclusively for Hexagon employees to simplify everyday tasks and boost productivity. Whether you need quick answers about HR, IT, travel, onboarding, security, or audit policies, the chatbot delivers instant, verified information at your fingertips. It helps you check leave balances and carry-forward status in real-time. You can also access guided support for ISO, NQA, export control training, and security guidelines like using GitHub Copilot or traveling internationally with company devices.
     </p>
-      </section>
+  </section>
 
   <!-- Linked Card Boxes -->
- <div class="home-page"> 
-<div class="card-container">
-    <div class="card-box">
-    <img src="images/hr-policies-1.png" class="card-icon" />
-    <span>HR Policies</span>
+  <div class="home-page">
+    <div class="card-container">
+      <div class="card-box">
+        <img src="images/hr-policies-1.png" class="card-icon" />
+        <span>HR Policies</span>
+      </div>
+      <div class="card-box">
+        <img src="images/github-gopilot-1.png" class="card-icon" />
+        <span>GitHub / Copilot</span>
+      </div>
+      <div class="card-box">
+        <img src="images/international-travel-policy-icon-1.png" class="card-icon" />
+        <span>International Travel</span>
+      </div>
+      <div class="card-box">
+        <img src="images/application-security-icon.png" class="card-icon" />
+        <span>Application Security</span>
+      </div>
+      <div class="card-box">
+        <img src="images/export-compliance.png" class="card-icon" />
+        <span>Export Compliance</span>
+      </div>
+      <div class="card-box">
+        <img src="images/audit-readiness.png" class="card-icon" />
+        <span>Audit Readiness</span>
+      </div>
+      <a href="agile.html">
+        <div class="card-box">
+          <img src="images/agile-policies-1.png" class="card-icon" />
+          <span>Agile Policies</span>
+        </div>
+      </a>
+      <div class="card-box">
+        <img src="images/leave-policy-1.png" class="card-icon" />
+        <span>Employee Leave Balance</span>
+      </div>
+    </div>
   </div>
-  <div class="card-box">
-    <img src="images/github-gopilot-1.png" class="card-icon" />
-    <span>GitHub / Copilot</span>
-  </div>
-  <div class="card-box">
-    <img src="images/international-travel-policy-icon-1.png" class="card-icon" />
-    <span>International Travel</span>
-  </div>
-  <div class="card-box">
-    <img src="images/application-security-icon.png" class="card-icon" />
-    <span>Application Security</span>
-  </div>
-  <div class="card-box">
-    <img src="images/export-compliance.png" class="card-icon" />
-    <span>Export Compliance</span>
-  </div>
-  <div class="card-box">
-    <img src="images/audit-readiness.png" class="card-icon" />
-    <span>Audit Readiness</span>
-  </div>
-  <a href="agile.html">
-  <div class="card-box">
-    <img src="images/agile-policies-1.png" class="card-icon" />
-    <span>Agile Policies</span>
-  </div>
-</a>
-  <div class="card-box">
-    <img src="images/leave-policy-1.png" class="card-icon" />
-    <span>Employee Leave Balance</span>
-  </div>
-</div>
-
-
 
   <!-- Footer -->
   <footer class="site-footer">
     <p>Clarity. Compliance. Convenience – All in one chat.</p>
   </footer>
 
-  <!-- JavaScript for Carousel -->
-  <script>
-    const slide = document.querySelector('.carousel-slide');
-    const images = document.querySelectorAll('.carousel-slide img');
-    const prev = document.querySelector('.prev');
-    const next = document.querySelector('.next');
-    let counter = 0;
-
-    function showSlide(index) {
-      if (index < 0) counter = images.length - 1;
-      else if (index >= images.length) counter = 0;
-      else counter = index;
-
-      slide.style.transform = `translateX(-${counter * 100}%)`;
-    }
-
-    next.addEventListener('click', () => showSlide(counter + 1));
-    prev.addEventListener('click', () => showSlide(counter - 1));
-    setInterval(() => showSlide(counter + 1), 5000); // Auto-slide every 5 sec
-  </script>
-  
-<!-- Chatbot Button with Tooltip -->
-<div class="chatbot-wrapper">
-  
-  <img src="images/chatbot-icon.png" id="chatbot-launcher" alt="Chatbot Icon" />
-</div>
-
-<!-- Chatbot Modal -->
-<div id="chatbot-modal">
-  <div class="chatbot-header">
-    <span>Hexagon Assistant</span>
-    <button id="chatbot-close">✖</button>
+  <!-- Chatbot Button -->
+  <div class="chatbot-wrapper">
+    <img src="images/chatbot-icon.png" id="chatbot-launcher" alt="Chatbot Icon" />
   </div>
-  <iframe
-    src="https://cr8crew-webapp.azurewebsites.net"
-    frameborder="0"
-    allow="microphone;"
-  ></iframe>
-</div>
 
+  <!-- Chatbot Modal -->
+  <div id="chatbot-modal">
+    <div class="chatbot-header">
+      <span>Hexagon Assistant</span>
+      <button id="chatbot-close">✖</button>
+    </div>
+    <iframe
+      src="https://cr8crew-webapp.azurewebsites.net"
+      frameborder="0"
+      allow="microphone;"
+    ></iframe>
+  </div>
 
-<!-- Chatbot Modal Script -->
-<script>
-  const chatbotButton = document.getElementById('chatbot-launcher');
-  const chatbotModal = document.getElementById('chatbot-modal');
-  const chatbotClose = document.getElementById('chatbot-close');
+  <!-- Chatbot Script -->
+  <script>
+    const chatbotButton = document.getElementById('chatbot-launcher');
+    const chatbotModal = document.getElementById('chatbot-modal');
+    const chatbotClose = document.getElementById('chatbot-close');
 
-  chatbotButton.addEventListener('click', () => {
-    chatbotModal.style.display = 'block';
-  });
+    chatbotButton.addEventListener('click', () => {
+      chatbotModal.style.display = 'block';
+    });
 
-  chatbotClose.addEventListener('click', () => {
-    chatbotModal.style.display = 'none';
-  });
-</script>
-
-
+    chatbotClose.addEventListener('click', () => {
+      chatbotModal.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
