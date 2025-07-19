@@ -74,6 +74,63 @@ body {
 .agile-content p {
   margin-bottom: 20px;
 }
+.agile-policy-section {
+  background-color: #f4f9ff;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.section-header-banner {
+  background: linear-gradient(to right, #d1f4ff, #d7fddc);
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.section-header-banner h2 {
+  margin: 0;
+  color: #004aad;
+  font-size: 28px;
+}
+
+.agile-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.agile-card-box {
+  background-color: #ffffff;
+  border: 1px solid #d0e4f5;
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 4px 10px rgba(0, 74, 173, 0.1);
+}
+
+.agile-card-box h3 {
+  color: #004aad;
+  margin-bottom: 15px;
+}
+
+.agile-card-box p,
+.agile-card-box ul {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.agile-card-box ul {
+  padding-left: 20px;
+}
+
+.agile-card-box ul li {
+  margin-bottom: 10px;
+}
+
 
 /* Footer */
 .site-footer {
